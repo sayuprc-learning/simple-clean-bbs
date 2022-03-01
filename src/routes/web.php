@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BbsController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,3 +17,11 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/bbs', [BbsController::class, 'index']);
+
+Route::post('/bbs/create', [BbsController::class, 'create']);
+
+Route::get('/bbs/{bbs_id}', [BbsController::class, 'show']);
+
+Route::post('/bbs/add', [BbsController::class, 'addComment']);
